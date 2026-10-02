@@ -1,4 +1,4 @@
-let productsHTML = '';
+let productsHTML = "";
 
 products.forEach((product) => {
   const html = `
@@ -46,7 +46,7 @@ products.forEach((product) => {
         Added
         </div>
 
-        <button class="add-to-cart-button button-primary js-add-to-cart" data-product-name="${product.name}">
+        <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
         Add to Cart
         </button>
     </div>
@@ -54,33 +54,39 @@ products.forEach((product) => {
   productsHTML += html; // accumulator pattern.
 });
 
-document.querySelector('.js-products-grid').innerHTML = productsHTML;
+document.querySelector(".js-products-grid").innerHTML = productsHTML;
 
-const addToCartButtons = document.querySelectorAll('.js-add-to-cart');
+const addToCartButtons = document.querySelectorAll(".js-add-to-cart");
 
-addToCartButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const productName = button.dataset.productName;
+addToCartButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const productId = button.dataset.productId;
 
     let matchingItem;
 
-    cart.forEach(item => {
-      if (item.name === productName) {
+    cart.forEach((item) => {
+      if (item.id === productId) {
         matchingItem = item;
       }
-    })
+    });
 
     if (matchingItem) {
       matchingItem.quantity += 1;
-    }
-    else{
+    } else {
       cart.push({
-        name: productName,
-        quantity: 1
+        id: productId,
+        quantity: 1,
       });
     }
-    
-    
-  console.log(cart);
-  })
-})
+
+    let cartQuantity = 0;
+
+    cart.forEach((item) => {
+      cartQuantity += item.quantity;
+    });
+
+    console.log(cartQuantity);
+
+    console.log(cart);
+  });
+});
