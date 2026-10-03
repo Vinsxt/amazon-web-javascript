@@ -1,3 +1,6 @@
+import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
+
 let productsHTML = "";
 
 products.forEach((product) => {
@@ -85,8 +88,6 @@ addToCartButtons.forEach((button) => {
       cartQuantity += item.quantity;
     });
 
-    console.log(cartQuantity);
-
-    console.log(cart);
+    document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
   });
 });
