@@ -4,8 +4,8 @@ import { formatCurrency } from "./utils/money.js";
 
 let cartSummaryHTML = "";
 
-cart.forEach((cartitem) => {
-  const productId = cartitem.productId;
+cart.forEach((cartItem) => {
+  const productId = cartItem.productId;
   let matchingProduct;
 
   products.forEach((product) => {
@@ -34,7 +34,7 @@ cart.forEach((cartitem) => {
         </div>
         <div class="product-quantity">
             <span>
-            Quantity: <span class="quantity-label">${cartitem.quantity}</span>
+            Quantity: <span class="quantity-label">${cartItem.quantity}</span>
             </span>
             <span class="update-quantity-link link-primary">
             Update
@@ -99,7 +99,6 @@ document.querySelectorAll(".js-delete-link").forEach(link => {
     link.addEventListener("click", () => {
         const productId = link.dataset.productId;
         removeFromCart(productId);
-
         const container = document.querySelector(`.js-cart-item-container-${productId}`);
         container.remove();
        
