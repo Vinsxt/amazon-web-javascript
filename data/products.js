@@ -1,4 +1,4 @@
-import {formatCurrency} from "../scripts/utils/money.js";
+import { formatCurrency } from "../scripts/utils/money.js";
 
 export function getProduct(productId) {
   let matchingProduct;
@@ -57,18 +57,32 @@ class Clothing extends Product {
 }
 
 const tshirt = new Clothing({
-    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
-    rating: {
-      stars: 4.5,
-      count: 56,
-    },
-    priceCents: 799,
-    keywords: ["tshirts", "apparel", "mens"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
-  });
+  id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+  image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+  name: "Adults Plain Cotton T-Shirt - 2 Pack",
+  rating: {
+    stars: 4.5,
+    count: 56,
+  },
+  priceCents: 799,
+  keywords: ["tshirts", "apparel", "mens"],
+  type: "clothing",
+  sizeChartLink: "images/clothing-size-chart.png",
+});
+
+/* 
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+
+function logThis() {
+  console.log(this);
+}
+
+logThis();
+logThis.call('hello');
+
+*/
 
 export const products = [
   {
@@ -547,5 +561,3 @@ export const products = [
   }
   return new Product(productDetails);
 });
-
-
